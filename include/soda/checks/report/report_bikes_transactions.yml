@@ -1,0 +1,5 @@
+checks for report_bikes_transactions:
+  - missing_count(bike_id) = 0:
+      name: All bikes have a bike ID
+  - min(total_transaction_amount_swapped):
+      fail: when < 0

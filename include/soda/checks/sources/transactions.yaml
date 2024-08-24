@@ -1,0 +1,18 @@
+checks for transactions:
+  - schema:
+      fail:
+        when required column missing: [transaction_amount, battery_usage_diff, transaction_id, client_id, battery_given_out, battery_received, bike_id, station_id, attendant_id, battery_given_soc, battery_received_soc, timestamp, discount]
+        when wrong column type:
+          transaction_amount: numeric
+          battery_usage_diff: bigint
+          transaction_id: bigint
+          client_id: bigint
+          battery_given_out: bigint
+          battery_received: bigint
+          bike_id: bigint
+          station_id: bigint
+          attendant_id: bigint
+          battery_given_soc: bigint
+          battery_received_soc: bigint
+          timestamp: character varying
+          discount: character varying

@@ -10,6 +10,13 @@ webserver_config.py
 airflow.cfg
 airflow.db
 
-include
+include/metabase-data
 .notes.txt
 .astro
+include/soda/configuration.yaml
+
+include/dbt/profiles.yml
+include/dbt/dbt_packages
+include/dbt/logs
+include/dbt/target
+include/dbt/.user.yml

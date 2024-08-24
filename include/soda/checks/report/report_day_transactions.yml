@@ -1,0 +1,5 @@
+checks for report_day_transactions:
+  - min(num_transactions):
+      fail: when < 0
+  - min(total_revenue):
+      fail: when < 0

@@ -1,0 +1,45 @@
+version: 2
+
+models:
+  - name: dim_attendants
+    columns:
+      - name: attendant_sk
+        tests:
+          - unique
+          - not_null
+        description: Unique identifier for each attendant
+  - name: dim_clients
+    columns:
+      - name: client_sk
+        tests:
+          - unique
+          - not_null
+        description: Unique identifier for each client
+  - name: dim_stations
+    columns:
+      - name: station_sk
+        tests:
+          - unique
+          - not_null
+        description: Unique identifier for each station
+  - name: dim_batteries
+    columns:
+      - name: battery_sk
+        tests:
+          - unique
+          - not_null
+        description: Unique identifier for each battery
+  - name: dim_bikes
+    columns:
+      - name: bike_sk
+        tests:
+          - unique
+          - not_null
+        description: Unique identifier for each bike
+  - name: fct_transaction_history
+    columns:
+      - name: transaction_id
+        tests:
+          - unique
+          - not_null
+        description: Unique identifier for each transaction

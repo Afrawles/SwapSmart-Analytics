@@ -1,0 +1,9 @@
+version: 2
+
+models:
+  - name: stg_attendants
+  - name: stg_clients
+  - name: stg_bikes
+  - name: stg_stations
+  - name: stg_batteries
+  - name: stg_transactions

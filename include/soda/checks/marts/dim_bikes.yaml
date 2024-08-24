@@ -1,0 +1,12 @@
+checks for dim_bikes:
+  - schema:
+      fail:
+        when required column missing: 
+          [bike_id, client_id]
+        when wrong column type:
+          bike_id: bigint
+          client_id: bigint
+  - duplicate_count(bike_id) = 0:
+      name: All bikes are unique
+  - missing_count(bike_id) = 0:
+      name: All bikes have a key

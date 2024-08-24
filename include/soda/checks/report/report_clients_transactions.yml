@@ -1,0 +1,7 @@
+checks for report_clients_transactions:
+  - missing_count(address) = 0:
+      name: All clients have an address
+  - min(total_transactions):
+      fail: when < 0
+  - min(total_revenue):
+      fail: when < 0
