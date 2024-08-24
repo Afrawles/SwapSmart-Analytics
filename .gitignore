@@ -20,3 +20,6 @@ include/dbt/dbt_packages
 include/dbt/logs
 include/dbt/target
 include/dbt/.user.yml
+
+db_password.txt
+db_user.txt
