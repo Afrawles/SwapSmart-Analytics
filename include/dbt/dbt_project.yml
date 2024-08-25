@@ -36,6 +36,6 @@ models:
       +materialized: table
     marts: 
       +materialized: table
-    reports:
+    report:
       +materialized: table
     
