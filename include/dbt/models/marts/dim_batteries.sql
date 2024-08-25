@@ -1,13 +1,13 @@
-WITH stg_dim_batteries as (
+WITH dim_batteries as (
     SELECT
         battery_id,
         capacity,
         status,
         created_datetime,
         update_datetime
-    FROM {{ ref('stg_batteries') }}
+    FROM {{ ref('batteries') }}
 ) 
 SELECT 
     {{ dbt_utils.generate_surrogate_key(['battery_id']) }} as battery_sk,
     * 
-FROM stg_dim_batteries
+FROM dim_batteries

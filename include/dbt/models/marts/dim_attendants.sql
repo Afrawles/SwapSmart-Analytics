@@ -1,4 +1,4 @@
-WITh stg_dim_attendants AS (
+WITh dim_attendants AS (
     SELECT
         attendant_id,
         first_name,
@@ -9,9 +9,9 @@ WITh stg_dim_attendants AS (
         status,
         created_datetime,
         update_datetime
-    FROM {{ ref("stg_attendants") }}
+    FROM {{ ref("attendants") }}
 )
 SELECT 
     {{ dbt_utils.generate_surrogate_key(["attendant_id"]) }} as attendant_sk,
     *
-FROM stg_dim_attendants
+FROM dim_attendants

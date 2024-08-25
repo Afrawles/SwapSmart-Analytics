@@ -1,4 +1,4 @@
-WITh stg_dim_clients AS (
+WITh dim_clients AS (
     SELECT
         client_id,
         first_name,
@@ -9,9 +9,9 @@ WITh stg_dim_clients AS (
         status,
         created_datetime,
         update_datetime
-    FROM {{ ref("stg_clients") }}
+    FROM {{ ref("clients") }}
 )
 SELECT 
     {{ dbt_utils.generate_surrogate_key(['client_id']) }} as client_sk,
     *
-FROM stg_dim_clients
+FROM dim_clients
