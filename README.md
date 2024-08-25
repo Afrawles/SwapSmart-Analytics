@@ -4,6 +4,8 @@
 
 ## Key Technologies and Tools
 
+![Data Pipeline](images/Pipeline.drawio.png)
+
 - **Apache Airflow (Astro)**: For orchestrating data pipelines
 - **Soda**: For ensuring data quality
 - **DBT**: For transforming and modeling data
