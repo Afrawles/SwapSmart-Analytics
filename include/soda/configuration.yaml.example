@@ -1,0 +1,8 @@
+data_source postgres:
+  type: postgres
+  connection:
+    host: <host> #postgres
+    username: <username> #postgres
+    password: <password> #postgres
+  database: postgres
+  schema: <schema> #swapsmart_schema

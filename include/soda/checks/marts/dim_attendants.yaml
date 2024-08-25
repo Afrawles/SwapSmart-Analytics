@@ -1,0 +1,12 @@
+checks for dim_attendants:
+  - schema:
+      fail:
+        when required column missing: 
+          [attendant_id, email]
+        when wrong column type:
+          attendant_id: bigint
+          email: character varying
+  - duplicate_count(attendant_id) = 0:
+      name: All attendants are unique
+  - missing_count(attendant_id) = 0:
+      name: All attendants have a key

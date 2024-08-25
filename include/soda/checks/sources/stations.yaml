@@ -1,0 +1,12 @@
+checks for stations:
+  - schema:
+      fail:
+        when required column missing: [station_id, station_name, phone_number, address, status, created_datetime, update_datetime]
+        when wrong column type:
+          station_id: bigint
+          station_name: character varying
+          phone_number: character varying
+          address: character varying
+          status: character varying
+          created_datetime: character varying
+          update_datetime: character varying

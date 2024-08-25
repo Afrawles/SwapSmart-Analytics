@@ -1,0 +1,10 @@
+checks for bikes:
+  - schema:
+      fail:
+        when required column missing: [bike_id, client_id, status, created_datetime, update_datetime]
+        when wrong column type:
+          bike_id: bigint
+          client_id: bigint
+          status: character varying
+          created_datetime: character varying
+          update_datetime: character varying

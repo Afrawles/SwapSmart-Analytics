@@ -1,0 +1,11 @@
+checks for dim_batteries:
+  - schema:
+      fail:
+        when required column missing: 
+          [battery_id]
+        when wrong column type:
+          battery_id: bigint
+  - duplicate_count(battery_id) = 0:
+      name: All batteries are unique
+  - missing_count(battery_id) = 0:
+      name: All batterries have a key

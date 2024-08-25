@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: postgres
+    database: postgres
+    schema: swapsmart_schema
+    tables:
+      - name: attendants
+      - name: clients
+      - name: bikes
+      - name: stations
+      - name: batteries
+      - name: transactions

@@ -1,0 +1,14 @@
+checks for attendants:
+  - schema:
+      fail:
+        when required column missing: [attendant_id, first_name, last_name, email, phone_number, address, status, created_datetime, update_datetime]
+        when wrong column type:
+          attendant_id: bigint
+          first_name: character varying
+          last_name: character varying
+          email: character varying
+          phone_number: character varying
+          address: character varying
+          status: character varying
+          created_datetime: character varying
+          update_datetime: character varying

@@ -1,0 +1,57 @@
+checks for fct_transaction_history:
+  - schema:
+      fail:
+        when required column missing: 
+          [client_sk, station_sk, attendant_sk, bike_sk, transaction_id, transaction_date, battery_given_out, battery_received, battery_given_soc, battery_received_soc, battery_usage_diff, discount, transaction_amount]
+        when wrong column type:
+          client_sk: text
+          station_sk: text
+          attendant_sk: text
+          bike_sk: text
+          transaction_id: bigint
+          transaction_date: date
+          battery_given_out: bigint
+          battery_received: bigint
+          battery_given_soc: bigint
+          battery_received_soc: bigint
+          battery_usage_diff: bigint
+          discount: character varying
+          transaction_amount: numeric
+  
+  - missing_count(transaction_id) = 0:
+      name: All transactions have a transaction ID
+  - missing_count(client_sk) = 0:
+      name: All transactions have a client key
+  - missing_count(station_sk) = 0:
+      name: All transactions have a station key
+  - missing_count(attendant_sk) = 0:
+      name: All transactions have an attendant key
+  - missing_count(bike_sk) = 0:
+      name: All transactions have a bike key
+  - missing_count(transaction_date) = 0:
+      name: All transactions have a transaction date
+  - missing_count(transaction_amount) = 0:
+      name: All transactions have a transaction amount
+  
+  - failed rows:
+      name: All transactions have valid battery SOC values
+      fail query: |
+        SELECT transaction_id, battery_given_soc, battery_received_soc
+        FROM fct_transaction_history
+        WHERE battery_given_soc < 0 OR battery_given_soc > 100
+          OR battery_received_soc < 0 OR battery_received_soc > 100
+  
+  - failed rows:
+      name: All transactions have a non-negative transaction amount
+      fail query: |
+        SELECT transaction_id, transaction_amount
+        FROM fct_transaction_history
+        WHERE transaction_amount < 0
+  
+  - failed rows:
+      name: Battery usage difference is logical
+      fail query: |
+        SELECT transaction_id, battery_given_soc, battery_received_soc, battery_usage_diff
+        FROM fct_transaction_history
+        WHERE battery_received_soc > battery_given_soc
+

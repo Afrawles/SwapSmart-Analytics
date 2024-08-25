@@ -1,0 +1,12 @@
+checks for dim_stations:
+  - schema:
+      fail:
+        when required column missing: 
+          [station_id, address]
+        when wrong column type:
+          station_id: bigint
+          address: character varying
+  - duplicate_count(station_id) = 0:
+      name: All stations are unique
+  - missing_count(station_id) = 0:
+      name: All stations have a key
