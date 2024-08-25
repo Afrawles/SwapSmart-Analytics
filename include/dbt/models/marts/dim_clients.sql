@@ -9,7 +9,7 @@ WITh dim_clients AS (
         status,
         created_datetime,
         update_datetime
-    FROM {{ ref("clients") }}
+    FROM {{ ref("stg_clients") }}
 )
 SELECT 
     {{ dbt_utils.generate_surrogate_key(['client_id']) }} as client_sk,

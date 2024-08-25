@@ -7,7 +7,7 @@ WITh dim_stations AS (
         status,
         created_datetime,
         update_datetime
-    FROM {{ ref('stations') }}
+    FROM {{ ref('stg_stations') }}
 )
 SELECT 
     {{ dbt_utils.generate_surrogate_key(['station_id']) }} as station_sk,

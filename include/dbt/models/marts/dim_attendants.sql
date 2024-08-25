@@ -9,7 +9,7 @@ WITh dim_attendants AS (
         status,
         created_datetime,
         update_datetime
-    FROM {{ ref("attendants") }}
+    FROM {{ ref("stg_attendants") }}
 )
 SELECT 
     {{ dbt_utils.generate_surrogate_key(["attendant_id"]) }} as attendant_sk,

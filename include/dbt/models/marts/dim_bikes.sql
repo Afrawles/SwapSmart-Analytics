@@ -5,7 +5,7 @@ WITH dim_bikes AS (
         status,
         created_datetime,
         update_datetime
-    FROM {{ ref('bikes') }}
+    FROM {{ ref('stg_bikes') }}
 )
 SELECT
     {{ dbt_utils.generate_surrogate_key(['sdb.bike_id', 'sdb.client_id']) }} AS bike_sk,

@@ -5,7 +5,7 @@ WITH dim_batteries as (
         status,
         created_datetime,
         update_datetime
-    FROM {{ ref('batteries') }}
+    FROM {{ ref('stg_batteries') }}
 ) 
 SELECT 
     {{ dbt_utils.generate_surrogate_key(['battery_id']) }} as battery_sk,
