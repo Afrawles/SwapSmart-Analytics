@@ -23,3 +23,5 @@ include/dbt/.user.yml
 
 db_password.txt
 db_user.txt
+
+images/.$data_modelling.drawio.bkp
